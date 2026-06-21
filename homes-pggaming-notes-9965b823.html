@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg游戏 · 产品说明与使用参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f7fa;
+            color: #1a2c33;
+            line-height: 1.7;
+            padding: 0 1.2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 0 3.5rem;
+        }
+
+        /* 蓝绿点缀 */
+        .accent {
+            color: #108c8c;
+        }
+
+        .accent-bg {
+            background: #daf2f2;
+        }
+
+        .accent-border {
+            border-left: 4px solid #108c8c;
+        }
+
+        /* hero 区域 – 知识型简明 */
+        .hero {
+            background: linear-gradient(135deg, #e2f0f0 0%, #cde8e8 100%);
+            border-radius: 36px;
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 14px rgba(16, 140, 140, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b4f4f;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #1f4343;
+            max-width: 80%;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2rem 1.4rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+        }
+
+        /* 卡片网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin: 2.2rem 0 2.4rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 720px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(16, 140, 140, 0.06);
+            transition: all 0.2s ease;
+            border: 1px solid #e1ecec;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(16, 140, 140, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #0b5c5c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "▹";
+            color: #108c8c;
+            font-size: 1.1rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2a4a4a;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            list-style-type: circle;
+        }
+
+        .card ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 特色引用 / 提示 */
+        .insight-block {
+            background: #dff0f0;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0 2.2rem;
+            border-left: 6px solid #108c8c;
+            color: #144040;
+        }
+
+        .insight-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-block strong {
+            color: #0b5c5c;
+        }
+
+        /* 使用建议/场景段落 */
+        .section-head {
+            font-size: 1.5rem;
+            font-weight: 480;
+            color: #0b4f4f;
+            border-bottom: 2px solid #b8d9d9;
+            padding-bottom: 0.3rem;
+            margin: 2.6rem 0 1rem;
+        }
+
+        .para {
+            margin: 1rem 0 1.2rem;
+            color: #1f3f3f;
+        }
+
+        .para a {
+            color: #108c8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #8bc0c0;
+            transition: border 0.15s;
+        }
+
+        .para a:hover {
+            border-bottom: 2px solid #108c8c;
+        }
+
+        /* faq 摘要卡片 */
+        .faq-mini {
+            background: #f5fbfb;
+            border-radius: 20px;
+            padding: 1.4rem 1.6rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #d2e5e5;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 530;
+            color: #0b5c5c;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #108c8c;
+        }
+
+        .faq-mini p {
+            margin-top: 0.4rem;
+            color: #2a4a4a;
+            font-size: 0.93rem;
+        }
+
+        /* 提示条 */
+        .note {
+            background: #fcfcfc;
+            border-radius: 30px;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid #cce0e0;
+            font-size: 0.95rem;
+            color: #1a3d3d;
+            margin: 2rem 0;
+        }
+
+        .note .badge {
+            display: inline-block;
+            background: #108c8c;
+            color: white;
+            border-radius: 40px;
+            padding: 0.1rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-right: 0.6rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cde0e0;
+            margin: 2.4rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #558080;
+            font-size: 0.9rem;
+            margin-top: 2.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #d2e5e5;
+        }
+
+        .footer-note a {
+            color: #108c8c;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 产品说明摘要 -->
+    <div class="hero">
+        <h1>pg游戏 · 结构、对照与延伸</h1>
+        <p>一份偏向知识梳理的产品说明，围绕日常查询、特征对照和阅读参考展开，不渲染，不夸张。</p>
+    </div>
+
+    <!-- 第一部分：摘述 + 亮点卡片网格2 -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>产品摘要</h3>
+            <p><a href="https://homes-pggaming.com">pg游戏</a> 所指向的平台主要提供线上互动内容，涉及多种游戏类型与界面模式。从信息组织方式来看，其内容库具有一定层次，便于使用者进行横向比较与分类查找。页面结构偏向清晰化，将不同题材归入对应模块，适合希望快速定位某一类内容的用户。</p>
+        </div>
+        <div class="card">
+            <h3>核心亮点</h3>
+            <ul>
+                <li>分类标签明确：按题材、机制和视觉风格划分入口</li>
+                <li>检索路径简短：首页直达深层模块，减少中间跳转</li>
+                <li>内容更新可见：首页保留近期条目，便于追踪变化</li>
+                <li>适配多端浏览：卡片与列表在移动端保持可读性</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 知识型插入：对照与使用场景 -->
+    <h2 class="section-head">参考 · 日常查询与对照</h2>
+    <p class="para">
+        日常使用中，<a href="https://homes-pggaming.com">pg游戏</a> 常被作为内容索引的起点。例如当需要横向对比不同主题的界面风格，或是快速了解某类内容的分类方式，直接通过首页的导航模块进入对应分区，比逐层搜索更省时。其卡片式布局也适合在碎片时间里做快速浏览，按照个人偏好筛选条目。
+    </p>
+
+    <!-- 网格三卡片：细化特点 -->
+    <div class="grid-3">
+        <div class="card">
+            <h3>信息结构</h3>
+            <p>采用两级分类配合标签系统，首页聚合热门及近期内容，二级页则按属性细分。较适合习惯先看全貌、再定点查阅的使用方式。</p>
+        </div>
+        <div class="card">
+            <h3>视觉与节奏</h3>
+            <p>以卡片和列表交替呈现，弱化广告感。配色低饱和，重点区域使用蓝绿点缀，减少视觉疲劳，尤其适合长时间翻阅场景。</p>
+        </div>
+        <div class="card">
+            <h3>延伸阅读</h3>
+            <p>部分内容条目附带简介或背景说明，方便用户在做专题梳理时获得上下文，而不仅仅是孤立标题。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议块（insight） -->
+    <div class="insight-block">
+        <p><strong>使用建议 ·</strong> 如果你是为了对照不同内容类型，建议先从首页的分类标签入手，建立基础印象后再进入具体页面。若以查询特定条目为目的，可直接利用站内索引或关键词定位，减少浏览层级。同时留意首页的更新区域，可了解近期新增内容的方向。</p>
+        <p style="margin-top:0.8rem;">—— 以上建议基于页面结构观察，不构成功能承诺，请自行判断适用性。</p>
+    </div>
+
+    <!-- FAQ 摘要卡片 -->
+    <div class="faq-mini">
+        <h3 style="color:#0b5c5c; font-weight:500; margin-bottom:0.8rem;">常见概念摘要</h3>
+        <details>
+            <summary>pg游戏 平台的内容是否适合横向对比？</summary>
+            <p>首页及分类页面通过统一的卡片模板展示条目，属性标签相对一致，适合做快速的题材或风格对比。</p>
+        </details>
+        <details>
+            <summary>移动端浏览体验如何？</summary>
+            <p>页面采用响应式网格，小屏幕下卡片自动排列，文字与触控区域经过适配，日常滑动查阅流畅。</p>
+        </details>
+        <details>
+            <summary>信息更新频率怎样？</summary>
+            <p>从首页「最近内容」模块可见更新持续进行，具体节奏视平台维护周期而定。</p>
+        </details>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note">
+        <span class="badge">说明</span>
+        本页为产品说明式介绍，所涉及链接指向 <a href="https://homes-pggaming.com">pg游戏</a> 站点。内容基于公开页面结构整理，不包含未经验证的操作指引或收益暗示。请根据自身需求查阅，并留意平台自身的使用条款。
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <p>基于日常查询与延伸阅读整理 · 信息截⾄页面生成时</p>
+        <p style="margin-top:0.2rem;"><a href="https://homes-pggaming.com">pg游戏</a> — 产品说明页</p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游娱乐 · 闲趣生活笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9d2 0%, #f6d5b3 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.7;
+      color: #2c241b;
+    }
+
+    .page-card {
+      max-width: 820px;
+      width: 100%;
+      background: #fffcf9;
+      border-radius: 36px;
+      box-shadow: 0 18px 36px -12px rgba(150, 90, 40, 0.25);
+      padding: 2.8rem 2.5rem;
+      transition: box-shadow 0.25s ease;
+    }
+
+    @media (max-width: 600px) {
+      .page-card {
+        padding: 2rem 1.4rem;
+        border-radius: 28px;
+      }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #3d2b1a;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #7a6248;
+      border-bottom: 2px solid #eddac8;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 380;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      background: #f7efe6;
+      padding: 1.2rem 1.8rem;
+      border-radius: 60px 20px 20px 60px;
+      margin-bottom: 2rem;
+      color: #3d2c1b;
+      font-weight: 420;
+      display: inline-block;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .quote-block {
+      background: #f1e5d8;
+      padding: 1.4rem 2rem;
+      border-radius: 30px 8px 30px 8px;
+      margin: 2rem 0;
+      font-style: normal;
+      border-left: 5px solid #c4a17a;
+      color: #3a2b1e;
+      font-weight: 380;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .quote-block::before {
+      content: "📌 生活提示 ";
+      font-weight: 550;
+      color: #8b6f4e;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-mini {
+      margin: 2.4rem 0 1.8rem 0;
+      background: #faf3eb;
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.15rem;
+      font-weight: 550;
+      color: #4f3823;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-item strong {
+      color: #6b4f33;
+      font-weight: 550;
+    }
+
+    .link-button {
+      display: inline-block;
+      background: #dabf9f;
+      color: #2b1f12;
+      padding: 0.45rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: 1px solid #c9af8b;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+
+    .link-button:hover {
+      background: #c7a985;
+      transform: scale(1.02);
+    }
+
+    .inline-link {
+      color: #7d5d3e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: #d6b597;
+      font-weight: 450;
+      transition: color 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #a77b53;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0 1.2rem 0;
+    }
+
+    .scene-item {
+      background: #f4e8dd;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #3b2c1d;
+    }
+
+    .signature {
+      margin-top: 2.5rem;
+      text-align: right;
+      color: #6e5943;
+      font-size: 0.95rem;
+      border-top: 1px solid #e7d6c6;
+      padding-top: 1.2rem;
+    }
+
+    .signature span {
+      background: #f2e3d6;
+      padding: 0.1rem 1rem;
+      border-radius: 40px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e6d2be;
+      margin: 2rem 0 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <h1>慢慢来，比较快</h1>
+    <div class="subhead">从一段闲暇说起 · 九游娱乐</div>
+
+    <div class="lead">✔ 周末下午，一壶茶，一支手柄，一种节奏</div>
+
+    <p>
+      你有没有发现，最近大家聊得最多的不是效率，而是如何<strong>真正放松</strong>。工作与生活之间那条线，变得越来越模糊——于是我们开始寻找一些能让大脑切换频道的瞬间。有人跑步，有人拼乐高，也有人习惯在短暂时光里走进一个虚拟世界，换换心情。这种轻量的切换，就是很多人理解的<strong>娱乐间隙</strong>。
+    </p>
+
+    <p>
+      说到这，我总会想起朋友常去的一个地方——<a href="https://mofficial-jiuyou.com" class="inline-link">九游娱乐</a>。它不是那种大张旗鼓的喧闹场，更像一个隐藏在城市角落的“玩乐客厅”。不追求刺激，只提供恰好够用的轻松感。从经典的牌局到新式的互动玩法，都带着一种刚刚好的温度。
+    </p>
+
+    <div class="quote-block">
+      不必每次都赢，只要过程有趣。娱乐不是逃离，而是对生活节奏的一次温柔调整。
+    </div>
+
+    <p>
+      不同的人会在这里找到不同的入口。有人喜欢策略类的烧脑，也有人偏爱纯粹的运气时刻。这正是娱乐有意思的地方——它不要求你成为专家，只邀请你参与其中。就像小时候放学后，和小伙伴蹲在台阶上玩一局翻卡，输赢早忘了，但那种沉浸感记忆犹新。
+    </p>
+
+    <div class="scene-grid">
+      <span class="scene-item">🌿 午后单人局</span>
+      <span class="scene-item">👥 朋友小聚暖场</span>
+      <span class="scene-item">📱 通勤碎片时间</span>
+      <span class="scene-item">🎧 放松背景音</span>
+    </div>
+
+    <p>
+      当然，任何娱乐都需要一个<strong>平衡的刻度</strong>。我习惯给自己定个“一局即停”的小规则：无论输赢，一局之后起身倒杯水，或者看看窗外。这种微小的仪式感，让娱乐不侵占生活，反而成为生活的标点符号。如果你也喜欢在闲暇时来一局，可以逛逛<a href="https://mofficial-jiuyou.com" class="inline-link">九游娱乐</a>，那里正好有这样的氛围。
+    </p>
+
+    <div class="faq-mini">
+      <h3>🍃 一些你可能想知道的</h3>
+      <div class="faq-item"><strong>Q：</strong> 适合完全没经验的人吗？<br> <strong>A：</strong> 当然，大部分玩法都有引导，门槛很低，重在参与过程。</div>
+      <div class="faq-item"><strong>Q：</strong> 需要花很多时间吗？<br> <strong>A：</strong> 短则几分钟，长则半小时，完全由你自己把握节奏。</div>
+      <div class="faq-item"><strong>Q：</strong> 和朋友一起玩方便吗？<br> <strong>A：</strong> 很方便，很多模式都支持临时组队或邀请，不用提前约时间。</div>
+    </div>
+
+    <hr>
+
+    <p style="margin-bottom: 0.8rem;">
+      说到底，娱乐不是为了填满时间，而是让时间变得有弹性。下次觉得生活太紧的时候，不妨给自己一个“玩一下”的许可。你会发现，小小的放松常常带来意想不到的灵感。
+    </p>
+
+    <p style="margin-bottom: 1.8rem;">
+      如果你也在寻找这样一个角落——不必太远，不必太吵——可以看看 <a href="https://mofficial-jiuyou.com" class="inline-link">九游娱乐</a>。它或许正好是你想要的那种“刚刚好”。
+    </p>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="https://mofficial-jiuyou.com" class="link-button">九游娱乐</a>
+    </div>
+
+    <div class="signature">
+      <span>— 写于一个闲适的周日下午</span>
+    </div>
+  </div>
+</body>
+</html>
